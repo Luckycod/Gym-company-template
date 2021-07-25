@@ -1,0 +1,546 @@
+
+
+*,*::after,*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-family: sans-serif;
+}
+
+li{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+// ========================Navbar====================
+.navbar{
+    height: 7rem;
+    width: 100%;
+    background-color: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    font-size: 1.2rem;
+}
+
+.navbar__container{
+    height: 100%;
+    width: 100%;
+    max-width: 1300px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+    margin: 0 auto;
+    padding: 0 5rem;
+}
+
+#navbar__logo{
+    font-size: 2rem;
+    color: darkgray;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 0.2rem;
+
+    & span{
+        color: crimson;
+    }
+}
+
+.navbar__menu{
+    display: flex;
+    align-items: center;
+
+    & .navbar__items{
+        height: 7rem;
+    }
+}
+
+.navbar__link{
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 10rem;
+    font-size: 1.4rem;
+    transition: color 0.2s ease-out;
+
+    &:hover{
+        color: crimson;
+    }
+}
+// ====================global button==============
+
+.button{
+    background-color: darkgray;
+    outline: none;
+    border: none;
+    padding: 1.5rem 3rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.4s ease-out;
+    box-shadow: inset 0 0 0 0 crimson;
+    color: #fff;
+    font-size: 1.4rem;
+    
+    &:hover{
+        box-shadow: inset 400px 0 0 0 crimson;
+        transition: all 0.4s ease-out;
+    }
+}
+
+// ============================Navbar media query===================
+
+@media screen and (max-width: 960px){
+    body.active{
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+    .navbar__container{
+    height: 7rem;
+    width: 100%;
+    max-width: 1300px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+    padding: 0;
+    }
+
+    .navbar__menu{
+        display: grid;
+        grid-template-columns: auto;
+        margin: 0;
+        width: 100%;
+        position: absolute;
+        top: -1000px;
+        z-index: -1;
+        opacity: 1;
+        transition: all 0.5s ease;
+    }
+
+    .navbar__menu.active{
+        top: 100%;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: 99;
+        height: 90vh;
+        text-align: center;
+        background-color: #111;
+    }
+
+    #navbar__logo{
+        padding-left: 2.5rem;
+    }
+
+    .navbar__toggle{
+        & .bar{
+            width: 2.5rem;
+            height: 3px;
+            margin: .5rem auto;
+            background-color: #fff;
+            display: block;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+    }
+
+    .navbar__items{
+        width: 100%;
+
+        & .navbar__links{
+            text-align: center;
+            font-size: 1.6rem;
+            width: 100%;
+            display: table;
+        }
+    }
+
+    .navbar__btn{
+        font-size: 1.6rem;
+
+        & .button{
+            padding: 2rem;
+        }
+    }
+
+    .navbar__link{
+        width: 100%;
+        text-align: center;
+    }
+
+    #mobile__menu{
+        position: absolute;
+        top: 20%;
+        right: 5%;
+        transform: translate(5%, 20%);
+    }
+
+    #mobile__menu.is-active :nth-child(2){
+        opacity: 0;
+    }
+
+    #mobile__menu.is-active :nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    #mobile__menu.is-active :nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+}
+
+// ====================hero section===========
+.hero{
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.4) rgba(0, 0, 0, 0.1)),
+    url('https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?cs=srgb&dl=pexels-victor-freitas-841130.jpg&fm=jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 90vh;
+    padding: 0.5rem calc((100vw - 1200px) / 2);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.hero__content{
+    color: #fff;
+    padding: 3rem 1rem;
+    line-height: 1;
+
+    & h1{
+        font-size: clamp(3rem, 8vw, 7rem);
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
+    }
+    & p{
+        font-size: clamp(1rem, 4vw, 2.5rem);
+        margin-bottom: 5rem;
+    }
+}
+
+
+// =================services section===============
+
+.services{
+    padding: 8rem calc((100vw - 1200px) / 2);;
+}
+
+.services__container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 1rem;
+}
+
+.services__img{
+    height: 100%;
+    width: 100%;
+}
+
+.topline{
+    color: crimson;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.services__heading{
+    margin-bottom: 1rem;
+    font-size: clamp(2rem, 6vw, 3rem)
+}
+.services__features{
+    list-style: none;
+}
+
+.services__feature{
+    margin-bottom: 1.5rem;
+    font-size: clamp(1rem, 5vw, 1.2rem);
+}
+
+.fa-check-circle{
+    margin-right: 0.5rem;
+    color: crimson;
+}
+
+@media screen and (max-width: 768px){
+    .services__container{
+        grid-template-columns: 1fr;
+    }
+}
+
+// ==================membership===========
+
+.membership{
+    background: #000;
+    color: #fff;
+    padding: 6rem calc((100vw - 1100px) / 2);
+    text-align: center;
+
+    & h1{
+        margin-bottom: 1rem;
+        font-size: clamp(2rem, 5vw, 3rem);
+        padding: 0 1rem;
+    }
+}
+
+.membership__desc{
+    margin-bottom: 3rem;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    padding: 1rem;
+}
+
+.membership__wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1rem;
+}
+
+.membership__card{
+    padding: 2rem;
+    min-height: 45rem;
+    width: 32.5rem;
+    background: #fff;
+    color: #000;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.membership__perks{
+    min-height: 15rem;
+
+    & p{
+        font-size: clamp(1rem, 4vw, 2rem);
+    }
+}
+
+.membership__card p{
+    margin-bottom: 1rem;
+}
+
+.card-icon{
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: crimson;
+}
+
+.membership__card h3{
+    font-size: clamp(1rem, 5vw, 2rem);
+    margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 1068px){
+    .membership__wrapper{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .membership__card{
+        width: 300px;
+        margin-bottom: 2rem;
+    }
+}
+// =======================Team section=============
+
+.team{
+    padding: 8rem calc((100vw - 1100px) / 2);
+}
+
+.team__wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(auto, 350px);
+}
+
+.team__card{
+    margin: 1rem;
+    border-radius: 10px;
+    position: relative;
+}
+
+.team__text{
+    padding: 1rem;
+
+    & h1{
+        margin-bottom: 1rem;
+        font-size: 3rem;
+    }
+}
+
+.team__desc{
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    line-height: 1.4;
+}
+
+.team__card p{
+    position: absolute;
+    bottom: 30px;
+    color: #fff;
+    left: 25px;
+    font-size: 3rem;
+}
+
+.team__img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.team__text:nth-child(1){
+    grid-row: 1/3;
+    grid-column: 2/3;
+}
+
+.team__text:nth-child(2){
+    grid-row: 5/6;
+    grid-column: 1/2;
+}
+
+.team__card:nth-child(3){
+    grid-row: 1/3;
+    grid-column: 1/2;
+}
+
+.team__card:nth-child(4){
+    grid-row: 2/4;
+    grid-column: 2/3;
+}
+
+.team__card:nth-child(5){
+    grid-row: 3/5;
+    grid-column: 1/2;
+}
+
+.team__card:nth-child(6){
+    grid-row: 4/6;
+    grid-column: 2/3;
+}
+
+@media screen and(max-width: 768px){
+    .team__wrapper{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    
+.team__text:nth-child(1){
+    grid-row: 1/2;
+    grid-column: 1/2;
+}
+
+.team__text:nth-child(2){
+    grid-row: 6/7;
+    grid-column: 1/2;
+}
+
+.team__card:nth-child(3){
+    grid-row: 3/4;
+    grid-column: 1/2;
+}
+
+.team__card:nth-child(4){
+    grid-row: 4/5;
+    grid-column: 1/2;
+}
+
+.team__card:nth-child(5){
+    grid-row: 5/6;
+    grid-column: 1/2;
+}
+
+.team__card:nth-child(6){
+    grid-row: 2/3;
+    grid-column: 1/2;
+}
+}
+
+// ======================email section===============
+
+.email{
+    background: linear-gradient(
+    180deg, 
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.6) 35%, 
+    rgba(0, 0, 0, 0.1) 100% 
+    ),
+    url('https://images.unsplash.com/photo-1517963628607-235ccdd5476c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 450px;
+    padding: 5rem calc((100vw - 1300px) / 2);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.email__content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & h1{
+        text-align: center;
+        margin-bottom: 1rem;
+        font-size: clamp(1rem, 5vw, 3rem);
+        padding: 0 1rem;
+    }
+
+    & p{
+        text-align: center;
+        font-size: clamp(1rem, 2.5vw, 1.5rem);
+        padding: 0 1rem;
+        margin-bottom: 2rem;
+    }
+}    
+
+form{
+    z-index: 10;
+}
+
+.form__wrap input{
+    padding: 1rem 3rem;
+    outline: none;
+    border: none;
+    width: 350px;
+    height: 50px;
+    margin-right: 1rem;
+    border-radius: 4px;
+}
+
+@media screen and(max-width: 768px){
+    .form__wrap{
+        display: flex;
+        flex-direction: column;
+        padding: 0 1rem;
+
+        & input{
+            margin-bottom: 1rem;
+            width: 100%;
+            margin-right: 0;
+        }
+    }
+}
+
